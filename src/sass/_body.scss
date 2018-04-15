@@ -1,0 +1,11 @@
+html {
+	height:100%;
+	width:100%;
+	display:table;
+}
+body {
+	font-family:$font;
+	min-height:100%;
+	display:table-cell;
+	@include scaleit(1.6, font-size line-height);
+}

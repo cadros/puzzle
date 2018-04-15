@@ -1,0 +1,51 @@
+// ======= Box layout, positioning, alignment Mixins ======
+
+
+@mixin vertical_center($animate:null) {
+        position:$a;
+        top: 50%;
+        transform:translateY(-50%);
+        @if $animate {
+			@include transition()
+		}
+}
+
+@mixin horizontal_center($width:b_height(2) ) {
+	left:50%;
+	margin-left:- $width / 2
+}
+
+
+@mixin shadow($shadow:0 0 2px, $color:$main, $set:null) {
+	-webkit-box-shadow:$shadow $color $set;
+	-moz-box-shadow:$shadow $color $set;
+	box-shadow:$shadow $color $set;
+}
+
+@mixin box_null() {
+	border:none;
+	box-shadow:none
+}
+
+@mixin title_null() {
+	text-shadow:none
+}
+
+@mixin button_null() {
+	padding:0;
+	color:inherit;
+	background:inherit;
+	text-transform:inherit;
+	line-height:inherit;
+	@include box_null;
+	@include no-radius;
+}
+
+
+@mixin clearfix {
+	&:after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}

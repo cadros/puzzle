@@ -1,0 +1,15 @@
+#customImage {
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width:20px;
+
+  & + .fake {
+    cursor: pointer;
+    margin: 0;
+  }
+}
+
+.fake {
+  pointer-events: none;
+}

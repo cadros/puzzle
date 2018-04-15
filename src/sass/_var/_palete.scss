@@ -1,0 +1,22 @@
+@import "germ_palete"; // comment to stop using default color variables
+
+$yellow : rgb(255, 193, 7);
+
+$dblue : rgb(5,33,61);
+$lblue : rgb(139,195,219);
+$lpink: rgb(226,71,85);
+
+
+// fonts
+$color      :$dblue;
+$colorAlt   :rgb(51,97,139);
+$a_color    :$w;
+$a_colorAlt :$colorAlt;
+$a_hover    :$a_color;
+
+$base:$lblue;
+$bg: $dblue; 
+
+// ui
+$butt  : $lblue;
+$alt   : $dblue;

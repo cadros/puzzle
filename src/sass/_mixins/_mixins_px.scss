@@ -1,0 +1,97 @@
+// ======== Dimentions Mixins
+
+@mixin scaleit($font_size, $props, $elements: "&", $base_line_h: $baseLH ) {	
+// e.g. h2 { @include scaleit(1.4, padding line-height);
+// e.g @include scaleit($fonts, line-height padding-top, h "." + left_title);
+    $values: ();
+    $times : false;
+    @each $s in $font_size {
+
+       // fix font-size bigger then base line
+    	@if $s > $base_line_h {
+	    	$times : $s / $base_line_h;
+	       @if( 2 > $times ) {
+	       	$times : ceil($times); // round up
+	       } @else {
+	       	$times : floor($times); // round down
+	       }
+    		$base_line_h :  $base_line_h * $times;
+		}
+
+        $values: append($values, #{$base_line_h / $s }  );
+    }
+    $value: join((), $values,  space );
+		
+	@if $elements != "&" { // self
+	@each $e in $elements {
+	@for $x from 1 through 6 { // 6 for number of h-s 
+	#{$e}#{$x} {
+    @each $prop in $props { 
+		@if $prop != line-height { 
+		#{$prop}: #{nth( $value, $x)}em } 
+		@else { #{$prop}: #{nth( $value, $x)} }
+		}
+	$px : nth( $font_size, $x) * 10;
+	font-size: #{$px}px;
+	//font-size: #{nth( $font_size, $x)}rem;
+	  }  }  }  }
+	@else { // element isnt self
+	@each $prop in $props { 
+	@if $prop == font-size {
+	$px : $font-size * 10;
+	//font-size : #{$font_size}rem;
+	font-size : #{$px}px;
+	}
+	@else { // prop isnt font-size 
+	@if $prop == line-height { #{$prop}: $value }
+	@if $prop != line-height { #{$prop}: #{$value}em }
+	 } }
+	}	
+}
+
+@mixin columns( $cols:2, $element: null, $width: null, $gap: null, $rule:null ) {
+	-webkit-column-count: $cols; // Chrome, Safari, Opera
+    -moz-column-count: $cols; // Firefox
+    column-count: $cols;
+
+    @if( $width ) {
+    	-webkit-column-width: $width;
+	    -moz-column-width: $width;
+	    column-width: $width;
+    }
+    @if($gap) {
+    	-webkit-column-gap: $gap;
+	    -moz-column-gap: $gap;
+	    column-gap: $gap;
+    }
+    @if($rule) {
+	    -webkit-column-rule: $rule;
+	    -moz-column-rule: $rule;
+	    column-rule: $rule;
+	}
+	@if($element) {
+		#{$element} {
+			-webkit-column-break-inside: avoid;
+		    page-break-inside: avoid;
+		    break-inside: avoid;
+		    display:inline-block;
+			vertical-align:top;
+			@if( $width == null ) {
+				width:100%;
+			}
+		}
+	}
+}
+
+
+
+@mixin null($props : null) {
+	@if( null != $props ) {
+		@each $prop in $props {
+			$prop :0
+		}
+	} @else {
+		margin:0;
+		padding:0;	
+	}
+}

@@ -1,0 +1,34 @@
+// typo
+$font : 'Open Sans', sans-serif;
+$navfont :  $font;
+
+$baseLH: 2.5; // lead
+
+$baseFont : 1.4; 
+
+@function bheight($times:1) {
+	$base_h :  $baseLH *10px * $times;
+	@return $base_h; 
+}
+
+$half :round(bheight(.5));
+$maxW :1180px;
+
+// Floats, positions
+$a: absolute;
+$r: relative;
+$f: fixed;
+
+
+// ~~~~~~~~~~~ Media Queries
+$phone:"only screen and (max-width: 760px)";
+$hard_hover: "only screen and (max-width: 768px) and (hover: on-demand)";
+
+$i    : "only screen and (min-width: 600px)";
+$pad  : "only screen and (min-width: 760px)";
+$mid  : "only screen and (min-width: 900px)";
+$big  : "only screen and (min-width: 1280px)";
+$max  : "only screen and (min-width: 1820px)";
+$huge : "only screen and (min-width: 1440px)";
+$long : "only screen and (min-height: 1000px)";
+$hover: "only screen and (min-width: 900px), (hover: on-demand), (hover: hover)";

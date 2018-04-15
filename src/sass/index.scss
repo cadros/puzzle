@@ -1,0 +1,24 @@
+$fa-font-path: "webfonts" !default;
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
+
+@import "_reset/normalize";
+@import "_mixins/index";
+@import "_var/index";
+
+// b4
+@import "~bootstrap/scss/bootstrap.scss";
+
+
+// fonts & icons
+@import "_font/faces";
+
+@import "_ui/index";
+
+@import "./body";
+
+@import "./animation";
+
+@import "./page";

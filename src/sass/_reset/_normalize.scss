@@ -1,0 +1,43 @@
+/* custom cs resets */
+
+body {
+    margin: auto;          /* horizontal centering */
+    max-width: 100%;       /* often cascaded to em|px */
+    word-wrap: break-word; /* allow text to wrap */
+}
+
+/*
+ * embed responsiv
+ * Avoid height:auto on iframe|object|embed due to clipping. 
+ * Void inline styles via !important if needed.
+ * custom cs fix of fit.css 
+ */
+iframe, object, embed,
+input, textarea, progress, meter, datalist, output,
+img, audio, video, canvas {
+    &, &[style*="width:"] {
+        max-width:  intrinsic;         /* Safari/WebKit,  prevents img with 100% max-width from disappearing in Safari and the rest */
+        max-width:  -moz-max-content;  /* Firefox/Gecko */
+        max-width:100%;
+        height: auto; // don't remove! override locally
+    }
+}
+// IE8 img height auto fix
+@media \0screen { 
+    img { width:auto }
+}
+
+button,
+input[type="reset"], 
+input[type="button"], 
+input[type="submit"], 
+input[type="file"] > input[type="button"]{
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0
+    }
+}
+
+ul {
+    list-style:none
+}

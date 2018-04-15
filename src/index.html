@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>Drag&drop canvas puzzle</title>
+	    <meta name="viewport" content="width=device-width">	   
+	</head>
+	<body>
+
+		<div class="container-fluid p-3 mx-auto position-relative bg-danger">
+			<div class="bg-decor position-absolute"></div>
+			<div class="row justify-content-center h-100 align-items-center position-relative inner">
+				<div class="col-md-7 card m-0 pl-4 pr-4 pb-4 pt-0 box-shadow bg-warning">
+
+					<header class="mb-auto pt-2 pb-2 row align-items-center">
+						<section class="col-md-6 form-inline justify-content-center justify-content-md-start">
+						    <div class="position-relative" title="Select image to upload">
+						    	<input type="file" accept="image/*" id="customImage" name="customImage"/>
+						    	<label class="fake"><i class="far fa-file-image text-danger"></i></label>
+						    </div>
+						    <div id="dropBox" class="p-3">Drag your image here</div>							
+						</section>
+						<section class="col-md-6 form-inline justify-content-center justify-content-md-end">
+						    <div class="gamelevel row align-items-center m-2 mr-md-2">Game level
+							    <span id="gameLevel" class="col">0</span>
+							    <div class="levelControls position-relative col fa-layers">
+								    <i class="fas fa-sort-up text-danger" id="gameLevelUp" aria-hidden="true"></i>
+								    <i class="fas fa-sort-down text-danger" id="gameLevelDown" aria-hidden="true"></i>		    	
+							    </div>
+							</div>			
+							<div id="shuffle" class="" title="Start over"><i class="fas fa-sync text-danger"></i></div>
+						</section>
+					</header>
+
+					<main role="main" id="puzzle" class="inner cover">  
+						<canvas id="canvasPuzzle"></canvas>	
+					</main>					
+
+				</div>
+				
+			</div>
+	    	<div id="imgPreview" resizeable= "true" class="position-absolute"></div>
+		</div>
+	</body>
+</html>
+
+

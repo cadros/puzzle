@@ -1,0 +1,135 @@
+header {
+	section {
+		div + div {
+			margin-left:1em;
+		}
+
+	}
+	i {
+	    vertical-align:middle;
+	    font-size:3em;
+	}
+}
+
+#imgPreview {
+	top:0;
+	right:0;
+	z-index:2;
+	transition:all 2s;
+	width: 50vw;
+	border:2px solid $yellow;
+	@media #{$pad} {
+		width: 15vw;
+
+	}
+	&.dim {
+		transform:scale(0);
+		opacity:0
+	}
+}
+
+.container-fluid {
+	height:100%;
+	min-height:100%;
+}
+
+.bg-decor {
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	overflow:hidden;
+	&:after {
+		content: "";
+		position:$a;
+		display:block;
+		width:100vw;
+		height:100vh;
+		top:0;
+		right:0;
+		transform: translateY(2%) rotate(-30deg) skewX(20deg);
+		border:10px solid $yellow;
+		box-shadow: 0 0 60px $yellow inset;
+		border-radius:50%;
+		opacity: .2;
+		box-shadow: 0 0 20px 20px red inset, 30px 30px 30px 0px IndianRed;
+	    @media #{$pad} {
+	    	border:60px solid $yellow;
+	    	transform: translateY(20%) rotate(30deg) scaleX(1.4);
+	    }
+	}
+
+	&:before {
+		content: "";
+		width:100vw;
+		height:100vh;
+		position:$a;
+		display:block;
+		top:0;
+		left:0;
+		border-radius:50%;
+		transform: translateX(5%) rotate(-60deg) skewX(-30deg);
+		border:10px solid $yellow;
+	    opacity: .5;
+	    box-shadow: 0 0 20px 20px red inset, 30px 30px 10px 10px palete($yellow, 5, .2);
+	    @media #{$pad} {
+	    	border:60px solid $yellow;
+	    	transform: translateX(-10%) rotate(-20deg) scaleX(-1.2) ;
+	    }
+	}
+}
+
+.inner {
+	z-index:1;
+	.card {
+		box-shadow: 0px 20px 170px 30px rgba(0,0,0,.5);
+	}
+}
+
+#dropBox {
+	border:1px dotted $danger;
+	&.highlight {
+	    background: $lpink;
+	  }
+}
+
+#shuffle {
+	cursor:pointer;
+}
+
+.winAlert {
+	color:white;
+	font-size:6rem;
+	position:$a;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+
+#gameLevel {
+	background:$yellow;
+	color:$red;
+	font-size:3em;
+}
+
+.gamelevel {
+	line-height:1;
+	.levelControls {
+		height:50px;
+	}
+	i {
+		position: $a;
+		width:30px;
+		right:0;
+		cursor:pointer;
+		font-size:2em;
+
+		&:last-child {
+			top:30%;
+		}
+	}
+}
+
+.fly {
+	animation: flyingBox 1s ease both;
+}
